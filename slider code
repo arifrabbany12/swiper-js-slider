@@ -1,0 +1,399 @@
+<!-- Swiper Section: Dynamic Swiper Slider -->
+<meta charset="utf-8">
+<title>Swiper Slider</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+<!-- Link Swiper's CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+
+<!-- Custom styles -->
+<style>
+    .swiper {
+      width: 100%;
+      max-width: 1160px;
+      margin: 0 auto;
+    }
+
+    .swiper-slide {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: bold;
+      color: #000;
+      height: 450px;
+      text-align: center;
+      background-color: hsl(0, 0%, 100%);
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      box-sizing: border-box;
+    }
+
+    .swiper-button-prev, .swiper-button-next {
+      color: #000;
+      display: block !important;
+      width: 52px;
+      height: 52px;
+      border-radius: 40px;
+      background-color: rgba(255, 255, 255, 0.8);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.3s ease;
+    }
+
+    .swiper-button-prev:hover, .swiper-button-next:hover {
+      background-color: rgba(255, 255, 255, 1);
+    }
+
+    .swiper-button-prev::after, .swiper-button-next::after {
+      font-family: 'Font Awesome 5 Free';
+      font-weight: 900;
+    }
+
+    .swiper-button-prev::after {
+      content: '\f104'; /* Font Awesome icon for left arrow */
+    }
+
+    .swiper-button-next::after {
+      content: '\f105'; /* Font Awesome icon for right arrow */
+    }
+
+    .swiper-slide.swiper-slide-visible.swiper-slide-active {
+      background: url(https://cdn.shopify.com/s/files/1/0889/0417/1812/files/662543f0bcbfd3f3442044a6_bk-img.svg?v=1723284132);
+      background-repeat: no-repeat;
+      background-position: right;
+    }
+
+    .content_sec_slider {
+      text-align: left;
+      width: 100%;
+      padding: 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-sizing: border-box;
+    }
+
+    .cntnt_testi {
+      width: 60%;
+    }
+
+    .image_testi_sec {
+      width: 424px;
+      height: 405px;
+    }
+
+    .cntnt_testi p {
+      color: #4a4a4a;
+      font-size: 28px;
+      font-family: 'Inter';
+      margin: 0px;
+      padding-bottom: 50px;
+      font-weight: 500;
+      line-height: 1.5;
+    }
+
+    .cntnt_testi h4 {
+      font-size: 20px;
+      font-weight: 500;
+      font-family: 'Inter';
+    }
+
+    .cntnt_testi h3 {
+      font-size: 24px;
+      font-weight: 700;
+      padding: 0px;
+      margin: 0;
+      line-height: 1.2;
+      font-family: 'Inter';
+      color: #101828;
+    }
+
+    .swiper-button-next {
+      right: -25px;
+    }
+
+    .swiper-button-prev {
+      left: -25px;
+    }
+
+    .cntnt_testi figure {
+      text-align: left;
+      margin: 0;
+    }
+
+    .swiper-button-next::after {
+      content: '\f105';
+      position: absolute;
+      right: 16px;
+      top: 8px;
+      font-size: 40px;
+      color: gray;
+    }
+
+    .swiper-button-prev::after {
+      content: '\f104';
+      position: absolute;
+      right: 16px;
+      top: 8px;
+      font-size: 40px;
+      color: gray;
+    }
+    @media only screen and (min-width: 500px) and (max-width: 1000px) {
+      .page-width.scroll-trigger.animate--slide-in {
+      display: flex !important;
+      justify-content: left;
+  }
+  }
+
+    /* Responsive Styles */
+    @media (max-width: 1024px) {
+      .content_sec_slider {
+        padding: 40px;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .cntnt_testi {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      .image_testi_sec {
+        width: 80%;
+        height: auto;
+      }
+
+      .cntnt_testi p {
+        font-size: 24px;
+        padding-bottom: 30px;
+      }
+
+      .cntnt_testi h4 {
+        font-size: 18px;
+      }
+
+      .cntnt_testi h3 {
+        font-size: 30px;
+      }
+
+      .swiper-button-next, .swiper-button-prev {
+        width: 44px;
+        height: 44px;
+      }
+
+      .swiper-button-next::after, .swiper-button-prev::after {
+        font-size: 30px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .swiper-slide {
+        height: auto;
+        padding: 20px;
+      }
+
+      .content_sec_slider {
+        padding: 20px;
+        flex-direction: column;
+      }
+
+      .cntnt_testi {
+        width: 100%;
+      }
+
+      .image_testi_sec {
+        width: 100%;
+        height: auto;
+      }
+
+      .cntnt_testi p {
+        font-size: 20px;
+        padding-bottom: 20px;
+      }
+
+      .cntnt_testi h4 {
+        font-size: 16px;
+      }
+
+      .cntnt_testi h3 {
+        font-size: 20px;
+      }
+
+      .swiper-button-next, .swiper-button-prev {
+        width: 36px;
+        height: 36px;
+      }
+
+      .swiper-button-next::after, .swiper-button-prev::after {
+        font-size: 24px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .swiper-slide {
+        height: auto;
+        padding: 10px;
+      }
+
+      .content_sec_slider {
+        padding: 10px;
+        flex-direction: column;
+      }
+
+      .cntnt_testi {
+        width: 100%;
+      }
+
+      .image_testi_sec {
+        width: 100%;
+        height: auto;
+      }
+
+      .cntnt_testi p {
+        font-size: 18px;
+        padding-bottom: 15px;
+      }
+
+      .cntnt_testi h4 {
+        font-size: 14px;
+      }
+
+      .cntnt_testi h3 {
+        font-size: 18px;
+      }
+
+      .swiper-button-next, .swiper-button-prev {
+        width: 30px;
+        height: 30px;
+      }
+
+      .swiper-button-next::after, .swiper-button-prev::after {
+        font-size: 20px;
+      }
+    }
+</style>
+
+<div class="swiper mySwiper">
+  <div class="swiper-wrapper">
+    {% for block in section.blocks %}
+      <div class="swiper-slide" style="background-color: {{ block.settings.background_color }};">
+        <div class="content_sec_slider">
+          <div class="cntnt_testi">
+            <p>{{ block.settings.testimonial_text }}</p>
+            <h3>{{ block.settings.slide_author }}</h3>
+            <h4>{{ block.settings.testimonial_designation }}</h4>
+            <figure>
+              {% if block.settings.additional_image %}
+                <img
+                  src="{{ block.settings.additional_image | image_url }}"
+                  alt="{{ block.settings.testimonial_designation }}"
+                  width="{{ block.settings.additional_image_width }}"
+                  height="{{ block.settings.additional_image_height }}"
+                  loading="lazy"
+                >
+              {% endif %}
+            </figure>
+          </div>
+          <div class="image_testi_sec">
+            <figure>
+              {% if block.settings.main_image %}
+                <img
+                  src="{{ block.settings.main_image | image_url }}"
+                  alt="{{ block.settings.slide_text }}"
+                  width="{{ block.settings.main_image_width }}"
+                  height="{{ block.settings.main_image_height }}"
+                  loading="lazy"
+                >
+              {% endif %}
+            </figure>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+  <!-- Add Arrows -->
+  <div class="swiper-button-next"></div>
+  <div class="swiper-button-prev"></div>
+</div>
+
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<!-- Initialize Swiper with Autoplay -->
+<script>
+  var swiper = new Swiper(".mySwiper", {
+    effect: "cards",
+    grabCursor: true,
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    autoplay: {
+      delay: 3000, // 3 seconds delay between slides
+      disableOnInteraction: false, // Continue autoplay even after user interaction
+    },
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Swiper Slider",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Slide",
+      "settings": [
+        {
+          "type": "text",
+          "id": "testimonial_text",
+          "label": "Slide description",
+          "default": "Company description"
+        },
+        {
+          "type": "text",
+          "id": "slide_author",
+          "label": "Slide Author",
+          "default": "Company Author"
+        },
+        {
+          "type": "text",
+          "id": "testimonial_designation",
+          "label": "Testimonial Designation",
+          "default": "Company Designation"
+        },
+        {
+          "type": "image_picker",
+          "id": "main_image",
+          "label": "Main Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "additional_image",
+          "label": "Additional Image"
+        },
+        {
+          "type": "color",
+          "id": "background_color",
+          "label": "Background Color",
+          "default": "#FFFFFF"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "testimonial",
+      "category": "Custom",
+      "blocks": [
+        {
+          "type": "slide"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
